@@ -2,6 +2,7 @@
 ### I need Node >= 6
 ### I'm currently still in development - check out my ToDo list for future improvements. 
 ### [I use create-react-app boilerplate](https://github.com/facebookincubator/create-react-app)
+### I follow airbnb ESlinter, without any semicolon
 
 ### Start me
 `npm install`
