@@ -19,5 +19,6 @@
 1. Store the timestamp in an array so I can always check any time interval for lost conditions. Currently the time interval for lost condition is fixed at 24 hours. 
 2. Implement more game logics such as More Sun and Less Sun.
 3. Connects to a database so players can save the game and come back, or share the game with other players.
-4. Have a Resume button after players click Stop
+4. Have a stop and resume button for the timer
+5. Timer needs to stop the moment the game is won or lost
 
