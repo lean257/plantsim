@@ -22,4 +22,4 @@
 3. Connects to a database so players can save the game and come back, or share the game with other players.
 4. Have a stop and resume button for the timer
 5. Timer needs to stop the moment the game is won or lost
-
+6. Write more unit tests
