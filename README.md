@@ -14,7 +14,7 @@
 ### Rules
 1. The plants will only die at midnight.
 2. If you water or trim more than 3 times or less than 1 in any given day, you will lose.
-3. If you get to level 4 and have not lost, you have won. 
+3. If you get to level 3 and have not lost, you have won. 
 
 ### ToDo
 1. Store the timestamp in an array so I can always check any time interval for lost conditions. Currently the time interval for lost condition is fixed at 24 hours. 
