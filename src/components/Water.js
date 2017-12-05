@@ -120,6 +120,7 @@ export class Water extends Component {
   }
 }
 const mapState = ({ timer, water, gameStop }) => ({ timer, water, gameStop })
+// dispatch actions to update store
 const mapDispatch = dispatch => {
   return {
     increment: function() {
