@@ -8,13 +8,14 @@ export const increment_water = count => ({ type: INCREMENT_WATER, count })
 export const reset = count => ({ type: RESET, count })
 
 // Reducers
-
-export default function waterReducer (count = 0, action) {
+//keep track of time intervals
+export default function waterReducer (count = [], action) {
   switch (action.type) {
     case INCREMENT_WATER:
-      return count + 1
+      console.log('new count arr', [...count, Date.now()])
+      return [...count, Date.now()]
     case RESET:
-      return 0
+      return []
     default:
       return count
   }

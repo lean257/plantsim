@@ -54,7 +54,7 @@ export class Clock extends Component {
   render() {
 
 
-    // win condition - play until level 5
+    // win condition - play until level 3
     if (this.props.level === MAX_LEVEL) {
       // stop the timer
       clearInterval(this.timer)
@@ -75,7 +75,7 @@ export class Clock extends Component {
         </Modal>
       )
     }
-
+    // initial view
     else if (!this.state.disablePlay) {
       return (
         <Button className='play' onClick = {this.tick} content='Play' color='pink'/>

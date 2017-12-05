@@ -9,7 +9,6 @@ export class Water extends Component {
     super(props)
     this.state = {
       modalOpen: false,
-      clickCount: 0,
       alertOpen: false,
       lostCon: false
     }
@@ -19,22 +18,32 @@ export class Water extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
+    let { water } = this.props
     // only check condition if game hasn't ended
     if (!this.props.gameStop) {
 
       var lostCon = false
       // It's midnight, check the conditions
-      if (this.props.timer % 24 === 0 && this.props.timer > 1) {
+      // if (this.props.timer % 24 === 0 && this.props.timer > 1) {
 
-        // Got too much water or not enough
-        lostCon = this.props.water >= 3 || this.props.water === 0
-
-        // Resetting at midnight
-        this.props.reset()
+        // if water more than 3x in the past 24 hours -> lose
+        if (water.length === 3) {
+          if (((water[2] - water[0]) / 1000) < 24) {
+            // Resetting time array
+            this.props.reset()
+            lostCon = true
+          }
+        }
+        // compare the next click to the last one, if > 24hrs -> lose
+        if (water.length > 1) {
+          if (((water[1] - water[0]) / 1000) > 24) {
+            this.props.reset()
+            lostCon = true
+          }
+        }
       }
 
-
+      // if lost, show the notification
       if (lostCon) {
         this.setState({
           modalOpen: false,
@@ -43,15 +52,14 @@ export class Water extends Component {
         })
       }
     }
-  }
 
   handleOpen() {
     this.setState({
-      modalOpen: true,
-     // increment the local water click count
-      clickCount: this.state.clickCount + 1
+      modalOpen: true
     })
-    // update water count to store
+    //get the timer at click of water button
+    var timer = this.props.timer
+    // update water timestamp to store
     this.props.increment()
   }
 
